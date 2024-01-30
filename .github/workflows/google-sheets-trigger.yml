@@ -1,0 +1,16 @@
+name: Google Sheets Trigger
+
+on:
+  repository_dispatch:
+    types: [google_sheet_updated]
+
+jobs:
+  update_data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Your Build and Deploy Steps
+        run: 'echo ${{ github.event.client_payload }}'
